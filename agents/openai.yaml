@@ -1,0 +1,7 @@
+interface:
+  display_name: "物理实验报告"
+  short_description: "基于内置课程资料与本地数据生成 LaTeX 物理实验报告"
+  default_prompt: "使用 $physics-lab-report-skill，结合仓库内置实验资料和我本地的数据照片/老师 PPT，生成一份符合课程要求的 LaTeX 实验报告。"
+
+policy:
+  allow_implicit_invocation: true

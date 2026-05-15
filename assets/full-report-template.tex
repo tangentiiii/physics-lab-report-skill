@@ -1,0 +1,55 @@
+\documentclass[12pt,a4paper]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{caption}
+
+\geometry{margin=2.5cm}
+\captionsetup{font=small}
+\graphicspath{{figures/}}
+
+\title{实验名称}
+\author{姓名，院系/班级，学号，组号，实验日期}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+% 用“目的-方法-结果-结论”组织摘要，可附关键词。
+\end{abstract}
+
+\section{实验原理}
+
+% 结合必要公式和示意图说明实验原理。
+
+\section{实验装置与实验方法}
+
+% 说明仪器、装置和操作方法。
+% 如有单独的装置图、电路图、波形图，建议放在 figures/ 目录并用相对路径插入。
+% 如图像来自原始照片中的局部区域，应先裁剪为单独图片再插入。
+
+\section{数据处理}
+
+% 建议将数据表写入 data.tex 并在此处 \input{data.tex}。
+% 计算建议写成：物理量 = 数据代入式 = 结果（单位）。
+\input{data.tex}
+
+\section{总结}
+
+% 据实分析结果、误差来源、实验现象和改进建议。
+
+\section{参考文献}
+
+% 按课程要求列出参考文献。
+
+\section{原始数据}
+
+% 如课程要求，请插入带教师签字的原始数据照片或扫描件。
+% 为保证 Overleaf 可直接编译，图片文件应保存在 figures/ 目录下。
+
+\end{document}
