@@ -1,13 +1,45 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python
 __pycache__/
+*.pyc
+*.pyo
+
+# LaTeX build artifacts
 *.aux
 *.bbl
+*.bcf
 *.blg
 *.fdb_latexmk
 *.fls
+*.lof
 *.log
+*.lot
+*.nav
 *.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+
+# Generic temp files
+*.tmp
+*.temp
+
+# Ignore generated PDFs by default, but keep bundled course materials
 *.pdf
 !course-materials/*.pdf
-*.synctex.gz
-*.tmp

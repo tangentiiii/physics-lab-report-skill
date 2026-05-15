@@ -4,6 +4,10 @@
 
 仓库**内置了课程切分资料 PDF**。因此安装时应当把**整个仓库目录**安装到 skills 目录中，而不是只复制单个 markdown 文件。
 
+GitHub 仓库地址：
+
+`https://github.com/tangentiiii/physics-lab-report-skill`
+
 ## 功能概览
 
 - 内置课程资料：
@@ -25,18 +29,24 @@
 ### Codex
 
 ```bash
-git clone --depth=1 https://github.com/<YOUR_GITHUB_NAME>/physics-lab-report-skill.git \
+git clone --depth=1 https://github.com/tangentiiii/physics-lab-report-skill.git \
   ~/.codex/skills/physics-lab-report-skill
 ```
 
 ### Claude Code
 
 ```bash
-git clone --depth=1 https://github.com/<YOUR_GITHUB_NAME>/physics-lab-report-skill.git \
+git clone --depth=1 https://github.com/tangentiiii/physics-lab-report-skill.git \
   ~/.claude/skills/physics-lab-report-skill
 ```
 
 安装后重启代理，使其重新发现新 skill。
+
+如果已经安装过旧版本，可以在对应目录执行：
+
+```bash
+git pull
+```
 
 ## 使用方式
 
@@ -46,6 +56,8 @@ git clone --depth=1 https://github.com/<YOUR_GITHUB_NAME>/physics-lab-report-ski
 - “读取仓库里的实验指导书，并结合我的原始数据生成简要报告。”
 - “先识别数据，再让我确认，最后写完整实验报告。”
 - “请按照绪论课 ppt 的要求处理不确定度、有效位数和线性回归。”
+- “如果波形图在原始照片里，请先裁剪出来再插入报告。”
+- “生成一个我上传到 Overleaf 就能直接编译的实验报告项目。”
 
 也可以显式调用：
 
@@ -63,6 +75,31 @@ git clone --depth=1 https://github.com/<YOUR_GITHUB_NAME>/physics-lab-report-ski
 - 如有必要，用户自己的 LaTeX 模板或现有数据文件
 
 也就是说，**课程共性资料内置在仓库中，个性化材料由用户本地提供**。
+
+## 推荐工作流
+
+1. 在一个单独的工作文件夹中放入你的实验相关材料。
+2. 至少准备好原始数据照片；如果老师发了补充 PPT，也一并放入。
+3. 让代理使用本 skill 先阅读仓库内置指导书和本地补充材料。
+4. 让代理先识别并展示 `data.tex`，确认无误后再继续。
+5. 让代理生成完整的 LaTeX 项目，包括 `report.tex`、`data.tex`、`figures/` 和必要的回归图。
+6. 将整个生成后的项目文件夹上传到 Overleaf 编译。
+
+## 输出结果通常包含什么
+
+一个典型的生成结果通常包括：
+
+- `report.tex`
+- `data.tex`
+- `figures/`
+- 可选的 `scripts/`
+
+其中：
+
+- `report.tex` 是主报告文件
+- `data.tex` 保存整理后的实验数据表
+- `figures/` 保存原始照片、裁剪图、波形图、电路图和回归图
+- `scripts/` 可保存线性回归或数据处理脚本，但 LaTeX 编译本身不应依赖这些脚本现场运行
 
 ## 仓库结构
 
@@ -106,12 +143,22 @@ physics-lab-report-skill/
 - 生成的 LaTeX 工程应避免绝对路径、本地专属字体、本地脚本依赖和需要 shell-escape 的方案，以保证 Overleaf 可直接编译。
 - 在用户确认 `data.tex` 之前，不得进入正式计算与成文阶段。
 
-## 发布前需要改的地方
+## 适用范围与限制
 
-1. 把 README 里的 `<YOUR_GITHUB_NAME>` 改成你的 GitHub 用户名。
-2. 如果你希望仓库名不同，可以同步修改克隆命令中的仓库名。
-3. 视需要在 `LICENSE` 中补充版权信息。
-4. 初始化 Git 仓库并推送到 GitHub。
+- 本仓库适用于已经拥有实验指导书、课程要求和原始数据的用户。
+- 本 skill 可以帮助整理、提取、计算和成文，但不会替用户伪造缺失数据。
+- 如果图片内容模糊、裁剪边界不清、两次识别冲突，代理应停止猜测并要求用户人工确认。
+- 如果你所在课程的实验报告规范与本仓库内置资料不同，请优先以你自己的课程要求为准，并让代理读取你的本地规则文件。
+
+## 更新
+
+如果你已经通过 Git 安装了本 skill，后续可以进入对应目录执行：
+
+```bash
+git pull origin main
+```
+
+如果你的默认分支不是 `main`，请改成实际分支名。
 
 ## License
 
